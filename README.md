@@ -1,6 +1,10 @@
 # glodule
 Glodule collects global-polluting variables from scripts and exposes them as if they were module members.
 
+### Why glodule?
+
+Glodule allows importing global-polluting traditonal libraries on module-based JS environments which do not provide a single-line solution.
+
 ### Why not [`global` option from SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/module-formats.md#globals)?
 
 It's useful for SystemJS users but a user may use CommonJS, AMD, or even ES2015 native module syntax. Glodule provides a low-level utility to use with any module loaders.
