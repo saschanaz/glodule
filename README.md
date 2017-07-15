@@ -5,6 +5,10 @@ Glodule collects global-polluting variables from scripts and exposes them as if 
 
 It's useful for SystemJS users but a user may use CommonJS, AMD, or even ES2015 native module syntax. Glodule provides a low-level utility to use with any module loaders.
 
+### Why not module loader detection, e.g. `if (typeof module !== "undefined" && typeof module.exports !== "undefined")`?
+
+ES2015 module syntax does not allow dynamic detecting and exporting. Glodule allows using any module system without modifying existing library codes, which helps when your target libraries are from third-parties.
+
 ### Use
 
 ```js
