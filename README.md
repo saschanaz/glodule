@@ -8,21 +8,33 @@ It's useful for SystemJS users but a user may use CommonJS, AMD, or even ES2015 
 ### Use
 
 ```js
-// foo.global.js
+// foo.js
 // code works on traditonal module-unsupported platform
-var global = true;
+var polluting = true;
 ```
 
 ```js
 // index.commonjs.js
 // a shim code for CommonJS system including Node.js
-module.exports = glodule("foo.global.js");
+module.exports = glodule("foo.js");
 
 // index.amd.js
 // a shim code for AMD system
-define(glodule("foo.global.js"));
+define(glodule("foo.js"));
 
 // index.es2015.js
 // a shim code for ES2015 compatible system
-export default glodule("foo.global.js");
+export default glodule("foo.js");
+```
+
+```js
+// Loaders now can use index.*.js:
+// CommonJS
+const foo = require("./index.commonjs.js")
+
+// AMD
+define(["index.amd"], foo => { });
+
+// ES2015
+import foo from "./index.es2015.js";
 ```
