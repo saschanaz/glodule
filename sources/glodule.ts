@@ -70,6 +70,3 @@ function glodule(path: string) {
         return result;
     }
 }
-
-// TODO: module on Node.js shouldn't use network request...
-// TODO: test on browser

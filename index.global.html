@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="lib/index.js"></script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const sample = glodule("sample.js");
+            const sample2 = glodule("sample2.js");
+
+            h21.textContent = sample.foo || h21.textContent;
+            h22.textContent = sample2.foo || sample2.bar || h22.textContent;
+        });
+    </script>
+</head>
+
+<body>
+    <h2 id="h21">IDW danyaa!!!</h2>
+    <h2 id="h22">IDW danyaa!!!</h2>
+</body>
+
+</html>
