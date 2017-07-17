@@ -25,6 +25,8 @@
   "homepage": "https://github.com/SaschaNaz/glodule#readme",
   "dependencies": {
     "@types/node": "^8.0.13",
+    "@types/systemjs": "^0.20.2",
+    "mz": "^2.6.0",
     "node-fetch": "^1.7.1"
   }
 }

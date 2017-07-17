@@ -4,8 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "typescript",
-            "tsconfig": "tsconfig.json",
+            "taskName": "jake",
+            "command": "jake",
+            "type": "shell",
             "group": {
                 "kind": "build",
                 "isDefault": true

@@ -3,6 +3,6 @@
         "target": "es2017",
         "declaration": true,
         "strict": true,
-        "outDir": "lib/"
+        "outDir": "temp/"
     }
 }
