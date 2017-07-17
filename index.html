@@ -8,14 +8,17 @@
         document.addEventListener("DOMContentLoaded", async () => {
             const { glodule } = await SystemJS.import("lib/index.js");
             const sample = glodule("sample.js");
+            const sample2 = glodule("sample2.js");
 
-            h2.textContent = sample.foo;
+            h21.textContent = sample.foo || h21.textContent;
+            h22.textContent = sample2.foo || sample2.bar || h22.textContent;
         });
     </script>
 </head>
 
 <body>
-    <h2 id="h2">IDW danyaa!!!</h2>
+    <h2 id="h21">IDW danyaa!!!</h2>
+    <h2 id="h22">IDW danyaa!!!</h2>
 </body>
 
 </html>

@@ -54,7 +54,7 @@ function glodule(path: string) {
         const additions = {} as any;
         for (const added of getAddedItems(globalsBefore, globalsAfter)) {
             additions[added] = global[added];
-            delete global[added]; // TODO: this fails. Remember previous value and restore after execution
+            delete global[added];
         }
 
         return additions;
