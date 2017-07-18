@@ -1,6 +1,6 @@
 {
   "name": "glodule",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Glodule collects global-polluting variables from scripts and exposes them as if they were module members.",
   "main": "lib/index.js",
   "directories": {
@@ -23,10 +23,9 @@
     "url": "https://github.com/SaschaNaz/glodule/issues"
   },
   "homepage": "https://github.com/SaschaNaz/glodule#readme",
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "^8.0.13",
     "@types/systemjs": "^0.20.2",
-    "mz": "^2.6.0",
-    "node-fetch": "^1.7.1"
+    "mz": "^2.6.0"
   }
 }
