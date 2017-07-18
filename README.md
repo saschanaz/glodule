@@ -18,7 +18,7 @@ ES2015 module syntax does not allow dynamic detecting and exporting. Glodule all
 ```js
 // foo.js
 // code works on traditonal module-unsupported platform
-var polluting = true;
+var foo = true;
 ```
 
 ```js
@@ -38,11 +38,12 @@ export default glodule("foo.js");
 ```js
 // Loaders now can use index.*.js:
 // CommonJS
-const foo = require("./index.commonjs.js")
+const { foo } = require("./index.commonjs.js")
 
 // AMD
-define(["index.amd"], foo => { });
+define(["index.amd"], ({ foo }) => { });
 
 // ES2015
-import foo from "./index.es2015.js";
+import m from "./index.es2015.js";
+m.foo;
 ```
