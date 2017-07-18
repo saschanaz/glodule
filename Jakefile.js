@@ -5,14 +5,12 @@ const jakeExecOptionBag = {
     printStderr: true
 };
 
-function asyncExec(cmds) {
+function asyncExecNoPrint(cmds) {
     return new Promise((resolve, reject) => {
-        try {
-            jake.exec(cmds, () => resolve(), jakeExecOptionBag)
-        }
-        catch (e) {
-            reject(e);
-        }
+        const exec = jake.createExec(cmds, jakeExecOptionBag);
+        exec.addListener("error", reject);
+        exec.addListener("cmdEnd", () => resolve());
+        exec.run();
     });
 }
 
@@ -28,7 +26,12 @@ function asyncExec(cmds) {
 
 desc("buildraw");
 task("buildraw", async () => {
-    await asyncExec(["tsc"]);
+    try {
+        await asyncExecNoPrint(["tsc"]);
+    }
+    catch (err) {
+        console.log("(Ignoring TS build error)");
+    }
 });
 
 desc("builddynamic");

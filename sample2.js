@@ -1,1 +1,1 @@
-var bar = "WA-2000";
+var bar = "WA2000";

@@ -42,22 +42,25 @@ function glodule(path: string) {
         }
     }
 
-    function execute(text: string) {
+    function execute(__gloduleExecTextVariable: string) {
         const global = getGlobalObject();
 
         // get global variables (browser: window, Node.js: global)
         // get global variables after evalutation. Compare, save and delete new variables
-        const globalsBefore = Object.getOwnPropertyNames(global);
-        (0, eval)(text); // https://stackoverflow.com/questions/19357978
-        const globalsAfter = Object.getOwnPropertyNames(global);
-
-        const additions = {} as any;
-        for (const added of getAddedItems(globalsBefore, globalsAfter)) {
-            additions[added] = global[added];
-            delete global[added];
+        const storage: any = Object.create(null);
+        with (generateVariableProxy(storage, global)) {
+            eval(__gloduleExecTextVariable);
         }
 
-        return additions;
+        return storage;
+    }
+
+    /** black magic https://stackoverflow.com/a/41704827 */
+    function generateVariableProxy(storage: object, global: any) {
+        return new Proxy(storage, {
+            has(storage, prop) { return prop !== "__gloduleExecTextVariable"; },
+            get(storage, prop) { return (prop in storage ? storage : global)[prop]; }
+        })
     }
 
     function getAddedItems(x: string[], y: string[]) {
