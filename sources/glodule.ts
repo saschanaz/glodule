@@ -10,7 +10,7 @@ function glodule(path: string) {
 
     function getScriptText(path: string): string {
         if (platformType === "node") {
-            const fs = require("fs");
+            const fs = require(`fs${""}`); // use `` to workaround SystemJS prefetching issue
             return fs.readFileSync(path, { encoding: "utf-8" });
         }
         else { // browser
