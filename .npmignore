@@ -1,0 +1,8 @@
+exporter/
+.vscode/
+.sources/
+*.html
+sample.js
+sample2.js
+tsconfig.json
+Jakefile.js
